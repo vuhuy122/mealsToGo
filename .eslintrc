@@ -5,5 +5,10 @@
         "@typescript-eslint/rule-name": "error"
       },
       "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint"]
+      "plugins": ["@typescript-eslint"],
+      "prettier/prettier": ["error", {}, {
+        "fileInfoOptions": {
+          "withNodeModules": true
+        }
+      }]
 }
