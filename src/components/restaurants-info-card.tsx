@@ -13,18 +13,20 @@ type Props = {
   ratting?: string;
   isCloseTemporarily?: any;
 };
+
 const Title = styled(Text)`
   padding: ${(props: any) => props.theme.space[3]};
-  color: red;
-  background-color: white;
+  color: ${(props: any) => props.theme.colors.text.primary};
+  background-color: ${(props: any) => props.theme.colors.bg.primary};
+  font-family: ${(props: any) => props.theme.fonts.body};
 `;
 const RestaurantCard = styled(Card)`
-    background-color: white,
-    margin:  ${(props: any) => props.theme.space[3]}
+  background-color: ${(props: any) => props.theme.colors.bg.primary};
+  margin: ${(props: any) => props.theme.space[3]};
 `;
 const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props: any) => props.theme.space[3]};
-  background-color: white;
+  background-color: ${(props: any) => props.theme.colors.bg.primary};
 `;
 
 export const RestaurantsInfoCard = (restaurant: Props) => {
