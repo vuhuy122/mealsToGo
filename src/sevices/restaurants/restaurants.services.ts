@@ -10,6 +10,16 @@ export const restaurantsRequest = (location: string = "51.219448,4.402464") => {
         resolve(mock)
     }))
 }
-restaurantsRequest().then((res) => {
-    console.log('res', camelize(res));
-}).catch((err) => console.log(err))
+export const restaurantsTransform = (result: any = []) => {
+    console.log('mappedResults', result);
+
+    const mappedResults = result?.results?.map((item) => {
+        return {
+            ...item,
+            isOpenNow: item.opening_hours && item.opening_hours.open_now,
+            isCloseTemporarily: item.business_status === "CLOSED_TEMPORARILY"
+        }
+    })
+    return camelize(mappedResults)
+}
+restaurantsRequest().then(restaurantsTransform).then(transform => console.log('transform', transform)).catch((err) => console.log(err))

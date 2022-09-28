@@ -13,10 +13,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from "react-native";
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { Ionicons } from '@expo/vector-icons'
-import { restaurantsRequest } from "./src/sevices/restaurants/restaurants.services";
 export default function App() {
 
   const Tab = createBottomTabNavigator();
+
   const TAB_ICON: any = {
     Restaurants: 'md-restaurant',
     Settings: 'md-settings',
@@ -31,7 +31,6 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
-  restaurantsRequest()
 
   const Setting = () => <SafeArea><Text>Setting</Text></SafeArea>
   const Map = () => <SafeArea><Text>Map</Text></SafeArea>

@@ -1,11 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Card } from "react-native-paper";
-import styled from "styled-components/native";
+import { Image, Text } from "react-native";
 import { SvgXml } from "react-native-svg";
-import star from "../../assets/star";
 import open from "../../assets/open";
+import star from "../../assets/star";
 import { Spacer } from "../components/spacer/spacer.component";
+import { Address, Info, Ratting, RestaurantCard, RestaurantCardCover, Section, SectionEnd, Title } from './restaurants-info-card-styles';
 type Props = {
   name?: string;
   icon?: string;
@@ -17,43 +16,7 @@ type Props = {
   isCloseTemporarily?: any;
 };
 
-const Title = styled(Text)`
-  color: ${(props: any) => props.theme.colors.text.primary};
-  font-family: ${(props: any) => props.theme.fonts.heading};
-  font-size: ${(props: any) => props.theme.fontSizes.body};
-`;
-const Address = styled(Text)`
-  color: ${(props: any) => props.theme.colors.text.primary};
-  font-family: ${(props: any) => props.theme.fonts.body};
-  font-size: ${(props: any) => props.theme.fontSizes.caption};
-`;
-const RestaurantCard = styled(Card)`
-  background-color: ${(props: any) => props.theme.colors.bg.primary};
-  margin: ${(props: any) => props.theme.space[3]};
-`;
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props: any) => props.theme.space[3]};
-  background-color: ${(props: any) => props.theme.colors.bg.primary};
-`;
-const Info = styled(View)`
-  padding: ${(props: any) => props.theme.space[3]};
-`;
-const Ratting = styled(View)`
-  flex-direction: row;
-  padding-vertical: ${(props: any) => props.theme.space[2]};
-`;
-const Section = styled(View)`
-  flex-direction: row;
-  align-items: center;
-`;
-const SectionEnd = styled(View)`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-const Padding = styled(View)`
-  padding-left: ${(props: any) => props.theme.space[3]};
-`;
+
 export const RestaurantsInfoCard = (restaurant: Props) => {
   const {
     name = "nhà hàng hải sản Phước Huy Vu",
