@@ -1,4 +1,4 @@
-import { mocks } from "./mock"
+import { mockImages, mocks } from "./mock"
 import camelize from 'camelize-ts'
 
 export const restaurantsRequest = (location: string = "51.219448,4.402464") => {
@@ -13,7 +13,10 @@ export const restaurantsRequest = (location: string = "51.219448,4.402464") => {
 export const restaurantsTransform = (result: any = []) => {
     console.log('mappedResults', result);
 
-    const mappedResults = result?.results?.map((item) => {
+    const mappedResults = result?.results?.map((item: any) => {
+        item.photos = item.photos.map((p) => {
+            return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))]
+        })
         return {
             ...item,
             isOpenNow: item.opening_hours && item.opening_hours.open_now,

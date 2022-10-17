@@ -17,7 +17,7 @@ type Props = {
 };
 
 
-export const RestaurantsInfoCard = (restaurant: Props) => {
+export const RestaurantsInfoCard = ({ restaurant = {} }: any) => {
   const {
     name = "nhà hàng hải sản Phước Huy Vu",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
