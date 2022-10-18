@@ -32,7 +32,7 @@ export const RestaurantsInfoCard = ({ restaurant = {} }: any) => {
   const rattingArray = Array.from(new Array(Math.ceil(ratting)));
 
   return (
-    <RestaurantCard elevation={5}>
+    <RestaurantCard key={name} elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>

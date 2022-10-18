@@ -3,11 +3,10 @@ import { FlatList, View } from "react-native";
 import { ActivityIndicator, Searchbar, Colors } from "react-native-paper";
 import styled from "styled-components/native";
 import { RestaurantsInfoCard } from "../../../components/restaurants-info-card";
+import { Search } from "../../../components/search.componet";
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { RestaurantsContext } from "../../../sevices/restaurants/restaurants.contex";
-const SearchView = styled(View)`
-  padding: ${(props: any) => props.theme.space[3]};
-`;
+
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16
@@ -21,6 +20,10 @@ const LoadingContainer = styled.View`
   top: 50%,
   left: 50%
 `
+const SearchView = styled(View)`
+        padding: ${(props: any) => props.theme.space[3]};
+    `;
+
 export const RestaurantsScreen = () => {
   const { restaurants, isLoading, Error }: any = useContext(RestaurantsContext);
   return (
@@ -30,7 +33,7 @@ export const RestaurantsScreen = () => {
           <Loading animating={true} color={Colors.blue200} size={50} style={{ marginLeft: -25 }} />
         </LoadingContainer>}
       <SearchView>
-        <Searchbar placeholder="Search" value={'Tìm nhà hàng'} onChangeText={(value) => null} />
+        <Search />
       </SearchView>
       <View style={{ flex: 1 }}>
         <RestaurantList
