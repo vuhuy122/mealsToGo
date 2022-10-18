@@ -27,7 +27,7 @@ export default function App() {
     Oswald_400Regular,
   });
   const [latoLoaded] = useLato({
-    Oswald_400Regular,
+    Lato_400Regular,
   });
   if (!oswaldLoaded || !latoLoaded) {
     return null;

@@ -28,9 +28,9 @@ export const RestaurantsInfoCard = ({ restaurant = {} }: any) => {
     isOpenNow = true,
     ratting = 4,
     isCloseTemporarily = true,
+    placeId = 0
   } = restaurant;
   const rattingArray = Array.from(new Array(Math.ceil(ratting)));
-
   return (
     <RestaurantCard key={name} elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
@@ -38,8 +38,8 @@ export const RestaurantsInfoCard = ({ restaurant = {} }: any) => {
         <Title>{name}</Title>
         <Section>
           <Ratting>
-            {rattingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+            {rattingArray.map((_, index) => (
+              <SvgXml key={`start-${placeId}-${index}`} xml={star} width={20} height={20} />
             ))}
           </Ratting>
           <SectionEnd>
