@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, TouchableOpacity } from "react-native";
 import { ActivityIndicator, Searchbar, Colors } from "react-native-paper";
 import styled from "styled-components/native";
 import { RestaurantsInfoCard } from "../../../components/restaurants-info-card";
@@ -24,7 +24,8 @@ const SearchView = styled(View)`
         padding: ${(props: any) => props.theme.space[3]};
     `;
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
+  console.log('navigation', navigation);
   const { restaurants, isLoading, Error }: any = useContext(RestaurantsContext);
   return (
     <SafeArea>
@@ -39,9 +40,11 @@ export const RestaurantsScreen = () => {
         <RestaurantList
           data={restaurants}
           renderItem={({ item }: any) => {
-            console.log('item', item);
             return (
-              <RestaurantsInfoCard restaurant={item} />
+              <TouchableOpacity onPress={() => navigation.navigate("RestaurantsDetail", { restaurants: item })}>
+                <RestaurantsInfoCard restaurant={item} />
+
+              </TouchableOpacity>
             )
           }
 
